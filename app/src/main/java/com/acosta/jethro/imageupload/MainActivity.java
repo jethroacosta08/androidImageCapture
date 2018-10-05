@@ -103,6 +103,8 @@ public class MainActivity extends AppCompatActivity {
                         myImage.setLayoutParams(params);
 
                         imageContainer.addView(myImage);
+
+                        new UploadFileAsync().execute("");
                         }
 
                 } catch (Exception e)
@@ -141,7 +143,7 @@ public class MainActivity extends AppCompatActivity {
         protected String doInBackground(String... params) {
 
             try {
-                sourceFileUri = "/mnt/sdcard/abc.png";
+                sourceFileUri = imagePath;
 
                 HttpURLConnection conn = null;
                 DataOutputStream dos = null;
@@ -156,7 +158,7 @@ public class MainActivity extends AppCompatActivity {
                 if (sourceFile.isFile()) {
 
                     try {
-                        String upLoadServerUri = "http://website.com/abc.php?";
+                        String upLoadServerUri = "http://172.27.0.13/uploadimage/?";
 
                         // open a URL connection to the Servlet
                         FileInputStream fileInputStream = new FileInputStream(
