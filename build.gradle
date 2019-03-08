@@ -25,8 +25,3 @@ allprojects {
 task clean(type: Delete) {
     delete rootProject.buildDir
 }
-
-android {
-    aaptOptions.cruncherEnabled = false
-    aaptOptions.useNewCruncher = false
-}
